@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Greeting = ({currentUser, logout}) => {
-  if(currentUser) {
+const Greeting = (props) => {
+  if(props.currentUser) {
     return <div>
-      <p>Welcome {currentUser.username}</p>
-      <button onClick={() => logout()}>Log Out</button>
+      <p>Welcome {props.currentUser.username}</p>
+      <button onClick={() => props.logout()}>Log Out</button>
     </div>
   } else {
     return <div>

@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Bench.destroy_all
+
+Bench.create(description: "Mission Dolores Park", lat: 37.760272, lng: -122.426828)
