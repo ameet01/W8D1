@@ -7,15 +7,19 @@ const mapStateToProps = (state, ownProps) => {
   let obj = {
     loggedIn: Boolean(state.session.currentUser),
     errors: state.errors.session,
-    formType: ownProps.location.pathname.slice(1);
+    formType: ownProps.location.pathname.slice(1)
   }
-
-)
+  return obj;
+}
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   let formType = ownProps.location.pathname.slice(1);
   let processForm;
-  formType === 'login' ? processForm = login : processForm = signup;
+  if(formType === 'login') {
+    processForm = login;
+  } else {
+    processForm = signup;
+  }
 
   return {
     processForm: user => dispatch(processForm(user))

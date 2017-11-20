@@ -1,5 +1,5 @@
 import React from 'react';
-import {withRouter} from 'react-router';
+import {Link, withRouter} from 'react-router-dom';
 
 class SessionForm extends React.Component {
 
@@ -22,8 +22,8 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    let header;
-    let link;
+    var header;
+    var link;
     if(this.props.formType === 'login') {
       header = 'Log In';
       link = <Link to='/signup'>Sign Up</Link>
@@ -43,11 +43,11 @@ class SessionForm extends React.Component {
             <input type='text' value={this.state.username} onChange={this.update('username')} />
           </label>
 
-          <label>Username
-            <input type='password' value={this.state.password} onChange={this.update('password')} />
+          <label>Password
+            <input type='text' value={this.state.password} onChange={this.update('password')} />
           </label>
 
-          <button></button>
+          <button type='Submit' value='Submit'></button>
         </form>
       </div>
     )

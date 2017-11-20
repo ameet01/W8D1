@@ -8,18 +8,13 @@ class Api::UsersController < ApplicationController
       render json: @user.errors.full_messages, status: 401
     end
   end
-  
+
   def show
     @user = User.find(params[:id])
   end
-  
+
   private
   def user_params
     params.require(:user).permit(:username, :password)
   end
 end
-
-# $.ajax({
-#   method: 'DELETE',
-#   url: '/api/session/',
-# })

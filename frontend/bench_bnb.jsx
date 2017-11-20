@@ -5,13 +5,21 @@ import Root from './components/root';
 import {login} from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const store = configureStore();
+  let store;
 // we don't put the store directly on the window because
 // it can be confusing when debugging, sometimes giving you access to state
   // when you shouldn't
-  window.login = login;
+ // just for testing!
+
+  if(window.currentUser) {
+    const preloadedState = { session: { currentUser: window.currentUser }};
+    store = configureStore(preloadedState);
+    delete window.currentUser;
+  } else {
+    store = configureStore();
+  }
   window.getState = store.getState;
-  window.dispatch = store.dispatch; // just for testing!
+  window.dispatch = store.dispatch;
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
 });
