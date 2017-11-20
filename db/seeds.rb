@@ -10,3 +10,5 @@
 Bench.destroy_all
 
 Bench.create(description: "Mission Dolores Park", lat: 37.760272, lng: -122.426828)
+Bench.create(description: "Lands End", lat: 37.783920, lng: -122.507970)
+Bench.create(description: "App Academy", lat: 37.798851, lng: -122.401211)
